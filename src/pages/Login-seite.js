@@ -3,38 +3,37 @@ import { Link } from "react-router-dom";
 import "./login.css";
 
 const LoginPage = () => {
-  // Zustandsvariablen für Benutzername, Passwort und "Eingeloggt bleiben"-Checkbox
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
 
-  // Funktion zum Verarbeiten des Formulars beim Absenden
+  const [clickCount, setClickCount] = useState(0);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Hier kannst du die Logik für die Überprüfung der Anmeldeinformationen implementieren
     console.log("Benutzername:", username);
     console.log("Passwort:", password);
     console.log("Eingeloggt bleiben:", rememberMe);
-
-    // Beispiel: Überprüfen der Anmeldeinformationen und Weiterleitung zu einer anderen Seite
-    // history.push('/dashboard');
   };
-
-  const [loading, setLoading] = useState(true); // Zustand für Ladezustand der Seite
+  // Funtion Loading 3 sec
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Verzögerung von 3 Sekunden, bevor die Seite als geladen markiert wird
     const timer = setTimeout(() => {
-      setLoading(false); // Markiere die Seite als geladen nach 3 Sekunden
+      setLoading(false);
     }, 3000);
 
-    // Aufräumen, um das Timeout zu entfernen, wenn die Komponente unmontiert wird
     return () => clearTimeout(timer);
-  }, []); // Leeres Abhängigkeitsarray, um sicherzustellen, dass dieser Effekt nur einmal ausgeführt wird
+  }, []);
 
   if (loading) {
-    return <div>Laden...</div>; // Zeige eine Ladeanzeige, solange die Seite noch lädt
+    return <div>Laden...</div>;
   }
+
+  // Función  botón "Anmelden" mit count
+  const handleLoginClick = () => {
+    setClickCount(clickCount + 1);
+  };
 
   return (
     <div className="login">
@@ -68,7 +67,10 @@ const LoginPage = () => {
             Eingeloggt bleiben
           </label>
         </div>
-        <button type="submit">Anmelden</button>
+        {/* Botón "Anmelden" con el contador */}
+        <button type="submit" onClick={handleLoginClick}>
+          Anmelden ({clickCount})
+        </button>
       </form>
       <div>
         Noch kein Konto? <Link to="/register">Registrieren</Link>

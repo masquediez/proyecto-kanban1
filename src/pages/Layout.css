@@ -1,13 +1,17 @@
 .Navbar {
-  background-color: #165ce9;
-  display: wrap;
+  position: fixed; /* Hace que el navbar se fije en la parte superior */
+  top: 0; /* Asegura que el navbar esté siempre en la parte superior */
+  left: 0;
   width: 100%;
-  align-items: start;
-  justify-content: center;
+  background-color: transparent; /* Fondo transparente */
+  padding: 10px 0; /* Añade un espacio alrededor del navbar */
+  z-index: 1000; /* Asegura que el navbar esté por encima de otros elementos */
 }
+
 .Navbar ul {
   list-style: none;
   display: flex;
+  justify-content: center; /* Centra los elementos del navbar horizontalmente */
 }
 
 .Navbar ul li {
@@ -15,10 +19,16 @@
 }
 
 .Navbar ul li a {
-  color: #fff;
+  color: #f80909;
   text-decoration: none;
+  padding: 8px 15px; /* Añade espacio alrededor de los enlaces para que parezcan botones */
+  border-radius: 5px; /* Agrega esquinas redondeadas para que los enlaces parezcan botones */
 }
 
-.login {
-  background-color: aqua;
+.Navbar ul li a:hover {
+  background-color: rgb(
+    43,
+    228,
+    18
+  ); /* Cambia el color de fondo al pasar el ratón por encima */
 }

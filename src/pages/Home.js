@@ -63,9 +63,7 @@ const Home = () => {
       </section>
       <section id="portfolio" className="portfolio">
         <h2>Portfolio</h2>
-        <div className="portfolio-gallery">
-          {/* Aquí irían las imágenes de tu portafolio */}
-        </div>
+        <div className="portfolio-gallery">{}</div>
       </section>
       <section id="about" className="about">
         <h2>About Us</h2>
