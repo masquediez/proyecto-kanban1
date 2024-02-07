@@ -14,6 +14,9 @@ const Layout = () => {
           <li>
             <Link to="/Dashboard">Dashboard</Link>
           </li>
+          <li>
+            <Link to="/rutas">Rutas</Link>
+          </li>
         </ul>
       </nav>
       <hr />
