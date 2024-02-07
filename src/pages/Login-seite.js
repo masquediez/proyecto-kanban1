@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./login.css";
 
@@ -19,6 +19,22 @@ const LoginPage = () => {
     // Beispiel: Überprüfen der Anmeldeinformationen und Weiterleitung zu einer anderen Seite
     // history.push('/dashboard');
   };
+
+  const [loading, setLoading] = useState(true); // Zustand für Ladezustand der Seite
+
+  useEffect(() => {
+    // Verzögerung von 3 Sekunden, bevor die Seite als geladen markiert wird
+    const timer = setTimeout(() => {
+      setLoading(false); // Markiere die Seite als geladen nach 3 Sekunden
+    }, 3000);
+
+    // Aufräumen, um das Timeout zu entfernen, wenn die Komponente unmontiert wird
+    return () => clearTimeout(timer);
+  }, []); // Leeres Abhängigkeitsarray, um sicherzustellen, dass dieser Effekt nur einmal ausgeführt wird
+
+  if (loading) {
+    return <div>Laden...</div>; // Zeige eine Ladeanzeige, solange die Seite noch lädt
+  }
 
   return (
     <div className="login">
