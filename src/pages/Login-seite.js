@@ -75,6 +75,16 @@ const LoginPage = () => {
       <div>
         Noch kein Konto? <Link to="/register">Registrieren</Link>
       </div>
+      <div>
+        <Link to="/About">
+          <button>Ir a About</button>
+        </Link>
+      </div>
+      <div>
+        <Link to="/Otro">
+          <button>Otro</button>
+        </Link>
+      </div>
     </div>
   );
 };

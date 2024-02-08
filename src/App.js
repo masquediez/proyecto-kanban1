@@ -6,11 +6,12 @@ import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import Default from "./pages/Default";
 import LoginPage from "./pages/Login-seite";
+import Otro from "./pages/Otro.js";
 
 function App() {
   return (
     <div className="App">
-      <h1></h1>
+      <h1>.</h1>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<Home />} />
@@ -18,6 +19,7 @@ function App() {
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="*" element={<Default />} />
           <Route path="Login-seite" element={<LoginPage />} />
+          <Route path="Otro" element={<Otro />} />
         </Route>
       </Routes>
     </div>
