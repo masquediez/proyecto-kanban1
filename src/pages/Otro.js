@@ -7,7 +7,7 @@ const Otro = () => {
   useEffect(() => {
     const fetchQuizData = async () => {
       try {
-        const response = await axios.get("/api/quiz"); // Endpoint del backend para obtener datos del quiz
+        const response = await axios.get("http://localhost:3000/api/quiz"); // Cambia la URL según sea necesario
         setQuizData(response.data);
       } catch (error) {
         console.error("Error al obtener datos del quiz:", error);
@@ -27,9 +27,15 @@ const Otro = () => {
       <ul>
         {quizData.map((question, index) => (
           <li key={index}>
-            <strong>Pregunta:</strong> {question.text}
+            <strong>Pregunta:</strong> {question.question}
             <br />
-            <strong>Respuesta:</strong> {question.answer}
+            <strong>Respuestas:</strong>
+            <ul>
+              {question.options.map((option, i) => (
+                <li key={i}>{option}</li>
+              ))}
+            </ul>
+            <strong>Respuesta correcta:</strong> {question.correctAnswer}
           </li>
         ))}
       </ul>
